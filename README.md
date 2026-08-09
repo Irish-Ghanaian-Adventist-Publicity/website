@@ -48,20 +48,72 @@ out before going live.
 
 ## Setup, step by step
 
-### 1. The code is already on GitHub — DONE
+### 1. Put the code on GitHub — ALREADY DONE
 
 Repository: **[Irish-Ghanaian-Adventist-Publicity/website](https://github.com/Irish-Ghanaian-Adventist-Publicity/website)**
 
 It lives under an organisation rather than a personal account, so committee members can
 come and go without the site belonging to one individual.
 
+These are the commands that put it there. You do **not** need to run them again — they are
+recorded so that anyone rebuilding this from scratch, or moving it to a different
+repository later, knows exactly what was done.
+
+```bash
+# Inside this folder
+git init
+git add .
+git commit -m "Initial site"
+git branch -M main
+
+git remote add origin https://github.com/Irish-Ghanaian-Adventist-Publicity/website.git
+git push -u origin main
+```
+
+**Day to day**, once it is set up, publishing a change is just:
+
+```bash
+git add .
+git commit -m "Describe what you changed"
+git push
+```
+
+Editors using the CMS at `/admin/` never touch any of this — Decap makes those commits for
+them automatically.
+
+<details>
+<summary>Moving it to a different repository later</summary>
+
+```bash
+git remote set-url origin https://github.com/NEW-OWNER/NEW-REPO.git
+git push -u origin main
+```
+
+Then update `repo`, `site_url` and `display_url` in [admin/config.yml](admin/config.yml),
+and `PATH_PREFIX` in [.github/workflows/deploy.yml](.github/workflows/deploy.yml) to match
+the new address.
+
+This repo also has a second remote named `personal`, pointing at an earlier
+`kboakyeduah/Irish_gh` copy. `git remote -v` lists them; `git remote remove personal`
+drops it if it is no longer wanted.
+
+</details>
+
 ### 2. Turn on GitHub Pages — DO THIS FIRST
+
+> **The repository must be public.** GitHub Pages is not available on private repositories
+> on a free plan, and the Pages section will not appear in Settings at all. Make it public
+> under **Settings → General → Danger Zone → Change repository visibility**, or see
+> *Option B* in step 3 to host it elsewhere and keep the repo private.
 
 Repo → **Settings** → **Pages** → under *Build and deployment*, set **Source** to
 **GitHub Actions**.
 
 Nothing publishes until this is switched on. Once it is, every push to `main` builds and
 publishes automatically — watch it under the **Actions** tab, it takes about a minute.
+
+If a build already failed because Pages was off, open the **Actions** tab and click
+**Re-run all jobs** on the latest run.
 
 The site will appear at:
 
