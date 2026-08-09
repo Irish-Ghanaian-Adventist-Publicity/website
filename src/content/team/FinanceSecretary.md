@@ -1,9 +1,9 @@
 ---
-title: Richard Boateng
-role: Secretary
+title: Kingsley Amankwah 
+role: Financial Secretary
 photo: ""
 email: ""
-order: 4
+order: 7
 ---
 
 Replace this placeholder in the CMS under **The team**. Add a photo, a line or two of bio,

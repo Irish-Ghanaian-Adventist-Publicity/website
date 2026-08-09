@@ -1,9 +1,9 @@
 ---
-title: Richard Boateng
-role: Secretary
+title: Bernardine Appiah Konadu
+role: Assistant Secretary
 photo: ""
 email: ""
-order: 4
+order: 5
 ---
 
 Replace this placeholder in the CMS under **The team**. Add a photo, a line or two of bio,
