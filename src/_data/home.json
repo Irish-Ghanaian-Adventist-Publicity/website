@@ -2,15 +2,26 @@
   "hero_eyebrow": "Ghana · Ireland · Seventh-day Adventist",
   "hero_title": "A Ghanaian Adventist community on the island of Ireland",
   "hero_text": "We are a growing community of Ghanaian Seventh-day Adventists and friends, spread across Ireland and Northern Ireland. We come together through the year to worship, to keep our faith and culture alive, and to look after one another.",
-  "hero_image": "",
+  "hero_image": "/assets/uploads/community-gathering.jpg",
+  "hero_image_alt": "Members of the Irish-Ghanaian Adventist Community gathered outdoors after a fellowship Sabbath",
+  "hero_image_caption": "Our community, gathered.",
   "primary_cta_label": "Upcoming gatherings",
   "primary_cta_url": "/events/",
   "secondary_cta_label": "About us",
   "secondary_cta_url": "/about/",
   "stats": [
-    { "value": "Island-wide", "label": "Members across all 32 counties" },
-    { "value": "Occasional", "label": "We gather several times a year" },
-    { "value": "Open", "label": "Everyone is welcome to join us" }
+    {
+      "value": "Island-wide",
+      "label": "Members across all 32 counties"
+    },
+    {
+      "value": "Occasional",
+      "label": "We gather several times a year"
+    },
+    {
+      "value": "Open",
+      "label": "Everyone is welcome to join us"
+    }
   ],
   "pillars": [
     {

@@ -279,7 +279,27 @@ collections:
           - { name: hero_eyebrow, label: "Small line above the title", widget: string }
           - { name: hero_title, label: "Main title", widget: string }
           - { name: hero_text, label: "Introduction paragraph", widget: text }
-          - { name: hero_image, label: "Background photo", widget: image, required: false }
+          - {
+              name: hero_image,
+              label: "Main photograph",
+              widget: image,
+              required: false,
+              hint: "Shown full width under the heading. A WIDE, landscape photo works best — a group shot is ideal. Resize it before uploading; anything over about 2000 pixels wide is wasted.",
+            }
+          - {
+              name: hero_image_alt,
+              label: "Photo description",
+              widget: string,
+              required: false,
+              hint: "Describes the photo for people using a screen reader, and shows if the image fails to load.",
+            }
+          - {
+              name: hero_image_caption,
+              label: "Photo caption",
+              widget: string,
+              required: false,
+              hint: "Optional line printed under the photo. Leave empty for no caption.",
+            }
           - { name: primary_cta_label, label: "Main button text", widget: string }
           - { name: primary_cta_url, label: "Main button link", widget: string }
           - {

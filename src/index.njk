@@ -4,24 +4,33 @@ permalink: /
 eleventyExcludeFromCollections: true
 ---
 
-<section class="hero{% if home.hero_image %} hero--with-image{% endif %}">
+<section class="hero">
   <div class="wrap hero__inner">
-    <div>
-      <p class="hero__eyebrow">{{ home.hero_eyebrow }}</p>
-      <h1 class="hero__title">{{ home.hero_title }}</h1>
-      <p class="hero__text">{{ home.hero_text }}</p>
-      <p class="hero__actions">
-        <a class="btn" href="{{ home.primary_cta_url | url }}">{{ home.primary_cta_label }}</a>
-        {% if home.secondary_cta_label %}
-          <a class="btn btn--ghost" href="{{ home.secondary_cta_url | url }}">{{ home.secondary_cta_label }}</a>
-        {% endif %}
-      </p>
-    </div>
-    {% if home.hero_image %}
-      <img class="hero__image" src="{{ home.hero_image | url }}" alt="" />
-    {% endif %}
+    <p class="hero__eyebrow">{{ home.hero_eyebrow }}</p>
+    <h1 class="hero__title">{{ home.hero_title }}</h1>
+    <p class="hero__text">{{ home.hero_text }}</p>
+    <p class="hero__actions">
+      <a class="btn" href="{{ home.primary_cta_url | url }}">{{ home.primary_cta_label }}</a>
+      {% if home.secondary_cta_label %}
+        <a class="btn btn--ghost" href="{{ home.secondary_cta_url | url }}">{{ home.secondary_cta_label }}</a>
+      {% endif %}
+    </p>
   </div>
 </section>
+
+{% if home.hero_image %}
+  <figure class="photo-band">
+    <img
+      src="{{ home.hero_image | url }}"
+      alt="{{ home.hero_image_alt or 'Members of the Irish-Ghanaian Adventist Community gathered together' }}"
+      width="2000"
+      height="653"
+    />
+    {% if home.hero_image_caption %}
+      <figcaption class="wrap">{{ home.hero_image_caption }}</figcaption>
+    {% endif %}
+  </figure>
+{% endif %}
 
 {% if home.stats.length %}
   <section class="facts">

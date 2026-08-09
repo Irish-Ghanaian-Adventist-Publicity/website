@@ -491,21 +491,35 @@ p {
   margin: 0;
 }
 
-/* Optional photo — sits quietly beside the words */
-.hero--with-image .hero__inner {
-  max-width: none;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
+/* Full-width photograph directly under the hero.
+   The image is a wide panorama; on narrow screens `object-fit: cover` keeps a
+   sensible band of it rather than shrinking everyone to invisibility. */
+.photo-band {
+  margin: 0;
+  border-bottom: 1px solid var(--line);
 }
 
-.hero__image {
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--line);
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+.photo-band img {
   width: 100%;
+  height: auto;
+  max-height: 62vh;
+  object-fit: cover;
+  object-position: center;
+  /* Holds the space, and shows while the photograph is still loading. */
+  background: var(--paper-3);
+}
+
+.photo-band figcaption {
+  padding-block: 0.85rem;
+  font-size: 0.82rem;
+  color: var(--ink-3);
+}
+
+@media (max-width: 760px) {
+  .photo-band img {
+    height: 42vw;
+    min-height: 190px;
+  }
 }
 
 /* --------------------------------------------------------------------------
