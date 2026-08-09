@@ -14,12 +14,34 @@
     "x": ""
   },
   "nav": [
-    { "label": "About", "url": "/about/" },
-    { "label": "Gatherings", "url": "/events/" },
-    { "label": "What we do", "url": "/ministries/" },
-    { "label": "News", "url": "/news/" },
-    { "label": "New to Ireland", "url": "/support/" },
-    { "label": "Contact", "url": "/contact/" }
+    {
+      "label": "Home",
+      "url": "/"
+    },
+    {
+      "label": "About",
+      "url": "/about/"
+    },
+    {
+      "label": "Gatherings",
+      "url": "/events/"
+    },
+    {
+      "label": "What we do",
+      "url": "/ministries/"
+    },
+    {
+      "label": "News",
+      "url": "/news/"
+    },
+    {
+      "label": "New to Ireland",
+      "url": "/support/"
+    },
+    {
+      "label": "Contact",
+      "url": "/contact/"
+    }
   ],
   "notice": "",
   "notice_url": ""

@@ -283,6 +283,7 @@ p {
 }
 
 .logo__text strong {
+  white-space: nowrap;
   font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: -0.005em;
@@ -300,11 +301,13 @@ p {
 
 .nav a {
   display: block;
-  padding: 0.45rem 0.7rem;
+  padding: 0.45rem 0.55rem;
   border-radius: var(--radius);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--ink-2);
   text-decoration: none;
+  /* Menu labels must never wrap — a two-line item breaks the header. */
+  white-space: nowrap;
 }
 
 .nav a:hover {
@@ -396,6 +399,7 @@ p {
   font-weight: 500;
   font-size: 0.92rem;
   text-decoration: none;
+  white-space: nowrap;
   border: 1px solid var(--accent);
   transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
@@ -1448,9 +1452,10 @@ a.card--pinned:hover {
   }
 }
 
-/* On the narrowest screens the IGAC mark carries the identity on its own —
-   the full name wraps to two lines and pushes the header out of shape. */
-@media (max-width: 460px) {
+/* The IGAC mark carries the identity on its own wherever the full name would
+   crowd the menu: on the narrowest screens, and in the band between the mobile
+   breakpoint and the width at which the whole menu comfortably fits. */
+@media (max-width: 460px), (min-width: 761px) and (max-width: 1180px) {
   .logo__text {
     display: none;
   }
