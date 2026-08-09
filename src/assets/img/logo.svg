@@ -1,7 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" width="200" height="40">
-  <rect width="40" height="13.33" fill="#CE1126" />
-  <rect y="13.33" width="40" height="13.33" fill="#FCD116" />
-  <rect y="26.66" width="40" height="13.34" fill="#006B3F" />
-  <path fill="#000" d="M20 14.6l1.72 5.3h5.57l-4.5 3.27 1.72 5.3L20 25.2l-4.51 3.27 1.72-5.3-4.5-3.27h5.57z" />
-  <text x="52" y="27" font-family="Georgia, serif" font-size="20" font-weight="700" fill="#04331f">Ghana · Ireland</text>
+  <rect x="0.75" y="3.75" width="32.5" height="32.5" rx="2" fill="none" stroke="#16181D" stroke-width="1.5" />
+  <text x="17" y="27" font-family="Georgia, serif" font-size="16" font-weight="600" fill="#16181D" text-anchor="middle">I</text>
+  <text x="44" y="20" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#16181D">IGAC</text>
+  <text x="44" y="32" font-family="Helvetica, Arial, sans-serif" font-size="8" fill="#767C86">Irish-Ghanaian Adventist Community</text>
 </svg>

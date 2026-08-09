@@ -7,30 +7,27 @@ layout: layouts/contact.njk
 
 ## Get in touch
 
-The quickest way to reach us is email. Someone checks the inbox regularly and will come
-back to you within a few days — sooner if it is urgent.
+Email is the quickest way to reach us. Someone checks the inbox regularly and will come back
+to you within a few days — sooner if it is urgent.
 
 If your message is about something private — immigration, housing, money, illness,
 bereavement, or trouble at home — say so, and it will be seen only by the person who can
-help. We treat those messages in confidence, and they are not discussed anywhere else.
+help. Those messages are treated in confidence and are not discussed anywhere else.
 
 ## Prayer requests
 
-Send them to the same address with "Prayer request" in the subject line. Requests go only
-to those who pray over them. No name is ever read out without permission.
-
-## Pastoral visits
-
-If you would like the pastor or an elder to visit — at home, in hospital, or simply for a
-conversation over coffee — just ask. This is not an imposition; it is the work.
+Send them to the same address with "Prayer request" in the subject line. Requests go only to
+those who pray over them, and no name is read out without permission.
 
 ## Where we are
 
-Service times and directions are on the [worship page](/worship/). We also meet in homes
-and hired halls around the island for fellowship days and Bible study. Tell us where you
-are based and we will connect you to whoever is nearest.
+We do not have a building. We meet in halls, churches and community centres in different
+parts of the island, and each gathering has its own venue listed on the
+[Gatherings page](/events/).
+
+Tell us where you are based and we will connect you with whoever is nearest.
 
 ## Other enquiries
 
-For media, or if you are an organisation or another congregation that would like to work
-with us, email us with "Partnership" in the subject line.
+For media, or if you are an organisation or another community that would like to work with
+us, email with "Partnership" in the subject line.

@@ -1,9 +1,9 @@
 ---
 title: Name to be added
-role: Treasurer
+role: Communications
 photo: ""
 email: ""
-order: 3
+order: 6
 ---
 
 Replace this placeholder in the CMS under **The team**. Add a photo, a line or two of bio,

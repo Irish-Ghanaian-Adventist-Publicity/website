@@ -1,32 +1,31 @@
 {
-  "hero_eyebrow": "Ghana × Ireland · Seventh-day Adventist",
-  "hero_title": "Akwaaba. Come and worship with us.",
-  "hero_text": "The Irish-Ghanaian Adventist Community is a family of believers keeping the Sabbath together across the island of Ireland. Whether you have worshipped in an Adventist church all your life or you are simply curious, there is a seat for you this Sabbath.",
+  "hero_eyebrow": "Ghana · Ireland · Seventh-day Adventist",
+  "hero_title": "A Ghanaian Adventist community on the island of Ireland",
+  "hero_text": "We are a growing community of Ghanaian Seventh-day Adventists and friends, spread across Ireland and Northern Ireland. We come together through the year to worship, to keep our faith and culture alive, and to look after one another.",
   "hero_image": "",
-  "primary_cta_label": "Plan your first visit",
-  "primary_cta_url": "/worship/",
-  "secondary_cta_label": "What's on",
-  "secondary_cta_url": "/events/",
+  "primary_cta_label": "Upcoming gatherings",
+  "primary_cta_url": "/events/",
+  "secondary_cta_label": "About us",
+  "secondary_cta_url": "/about/",
   "stats": [
-    { "value": "Sat", "label": "We worship on the Sabbath" },
-    { "value": "9:45am", "label": "Sabbath School begins" },
-    { "value": "32", "label": "Counties, one family" },
-    { "value": "All", "label": "Welcome, without exception" }
+    { "value": "Island-wide", "label": "Members across all 32 counties" },
+    { "value": "Occasional", "label": "We gather several times a year" },
+    { "value": "Open", "label": "Everyone is welcome to join us" }
   ],
   "pillars": [
     {
-      "title": "Worship",
-      "text": "Sabbath School, Divine Service and Friday vespers — in English and in Twi, with the hymns and the harmonies we grew up on.",
+      "title": "Worship together",
+      "text": "We meet through the year for Sabbath worship, prayer and study — in English and in Twi, with the hymns and harmonies we grew up on.",
       "icon": "faith"
     },
     {
-      "title": "Fellowship",
-      "text": "A Ghanaian family far from home. We eat together after service, we pray for each other in the week, and nobody worships alone here.",
+      "title": "Stay connected",
+      "text": "Between gatherings we keep in touch. For many members this is the nearest thing to family on this island, and it works quietly, all year round.",
       "icon": "community"
     },
     {
-      "title": "Service",
-      "text": "Health ministry, community outreach, and practical help for members finding their feet in Ireland — faith that shows up on a Tuesday.",
+      "title": "Support one another",
+      "text": "Practical help for members finding their feet in Ireland, and real support in bereavement, illness or hardship.",
       "icon": "support"
     }
   ],

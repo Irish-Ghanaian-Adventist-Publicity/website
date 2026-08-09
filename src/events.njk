@@ -1,39 +1,38 @@
 ---
 layout: layouts/base.njk
-title: Events
-subtitle: Special Sabbaths, prayer weeks, baptisms and fellowship days across the island.
+title: Gatherings
+subtitle: We come together several times a year, in different parts of the island. Everyone is welcome — members, friends and anyone simply curious.
 permalink: /events/
 eleventyExcludeFromCollections: true
 ---
 
 <div class="page-hero">
   <div class="wrap">
+    <span class="eyebrow">Diary</span>
     <h1>{{ title }}</h1>
     <p class="page-hero__sub">{{ subtitle }}</p>
   </div>
 </div>
 
 <div class="wrap">
-  {% if collections.upcomingEvents.length %}
-    <section class="section section--flush">
-      <h2 class="section__title">Coming up</h2>
+  <section class="section section--flush">
+    <h2 class="section__title">Coming up</h2>
+    {% if collections.upcomingEvents.length %}
       <div class="cards cards--3">
         {% for event in collections.upcomingEvents %}
           {% include "partials/event-card.njk" %}
         {% endfor %}
       </div>
-    </section>
-  {% else %}
-    <section class="section section--flush">
+    {% else %}
       <div class="empty">
-        <p><strong>Nothing on the calendar just yet.</strong></p>
+        <p><strong>Nothing in the diary just now.</strong></p>
         <p>
-          We're planning the next one. Follow us or
-          <a href="{{ '/join/' | url }}">join the mailing list</a> and you'll be the first to know.
+          The next gathering will be announced here and by email.
+          <a href="{{ '/join/' | url }}">Let us know you're out there</a> and we'll tell you directly.
         </p>
       </div>
-    </section>
-  {% endif %}
+    {% endif %}
+  </section>
 
   {% if collections.pastEvents.length %}
     <section class="section section--flush">

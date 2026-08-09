@@ -1,24 +1,23 @@
 ---
-title: Week of Prayer
+title: Week of Prayer (online)
 event_date: 2026-10-17
 start_time: 7:30pm nightly
-venue: In person and online
+venue: Online
 address: ""
-city: Dublin
+city: Online
 price: Free
 booking_url: ""
 image: ""
 featured: false
 ---
 
-Seven evenings of prayer, study and reflection, running from Sabbath to Sabbath.
+Seven evenings of prayer and reflection, held online so that members anywhere on the island
+can join without travelling.
 
-Each evening brings a short message, singing, and time given to prayer — for the church,
-for our families here and at home in Ghana, and for the particular burdens members are
-carrying.
+Each evening is short — a reading, some singing, a brief message, and time given to prayer
+for the community, for our families here, and for those at home in Ghana.
 
-Sessions are streamed for anyone who cannot travel, and for members outside Dublin. The
-link goes out on the WhatsApp group and by email at the start of the week.
+The joining link goes out by email and on the WhatsApp group at the start of the week.
 
-If you have something you would like prayed over during the week, send it in beforehand.
-Requests are held in confidence and no name is read out without permission.
+If you would like something prayed over during the week, send it in beforehand. Requests are
+held in confidence, and no name is read out without permission.

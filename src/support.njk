@@ -8,6 +8,7 @@ eleventyExcludeFromCollections: true
 
 <div class="page-hero">
   <div class="wrap">
+    <span class="eyebrow">Practical help</span>
     <h1>{{ title }}</h1>
     <p class="page-hero__sub">{{ subtitle }}</p>
   </div>
@@ -19,10 +20,7 @@ eleventyExcludeFromCollections: true
     {% if guides.length %}
       <div class="cards cards--3">
         {% for guide in guides %}
-          <a class="card card--guide" href="{{ guide.url | url }}">
-            <span class="card__icon card__icon--sm" aria-hidden="true">
-              {% set icon = guide.data.icon %}{% include "partials/icon.njk" %}
-            </span>
+          <a class="card" href="{{ guide.url | url }}">
             <h2>{{ guide.data.title }}</h2>
             <p>{{ guide.data.summary }}</p>
             <span class="tag">{{ guide.data.jurisdiction }}</span>
@@ -35,7 +33,7 @@ eleventyExcludeFromCollections: true
   </section>
 
   <section class="section section--flush">
-    <div class="callout callout--wide">
+    <div class="callout">
       <h2>Can't find what you need?</h2>
       <p>
         Ask us directly. Email <a href="mailto:{{ site.email }}">{{ site.email }}</a> — a

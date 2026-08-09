@@ -8,6 +8,7 @@ eleventyExcludeFromCollections: true
 
 <div class="page-hero">
   <div class="wrap">
+    <span class="eyebrow">Notices</span>
     <h1>{{ title }}</h1>
     <p class="page-hero__sub">{{ subtitle }}</p>
   </div>
@@ -18,7 +19,7 @@ eleventyExcludeFromCollections: true
     {% if collections.newsPosts.length %}
       <div class="cards cards--3">
         {% for post in collections.newsPosts %}
-          <a class="card card--news{% if post.data.pinned %} card--pinned{% endif %}" href="{{ post.url | url }}">
+          <a class="card{% if post.data.pinned %} card--pinned{% endif %}" href="{{ post.url | url }}">
             {% if post.data.pinned %}<span class="pin">Pinned</span>{% endif %}
             <time class="card__date" datetime="{{ post.data.date | isoDate }}">{{ post.data.date | longDate }}</time>
             <h2>{{ post.data.title }}</h2>

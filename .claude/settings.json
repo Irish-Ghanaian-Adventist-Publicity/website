@@ -3,7 +3,13 @@
     "allow": [
       "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --hide-scrollbars --screenshot=/private/tmp/claude-502/-Users-kluivert-Personal-Irish-gh/1af89817-0f22-4c4d-a5e2-9ec4149297ce/scratchpad/mobile3.png --window-size=400,1400 --virtual-time-budget=3000 --allow-file-access-from-files file:///private/tmp/claude-502/-Users-kluivert-Personal-Irish-gh/1af89817-0f22-4c4d-a5e2-9ec4149297ce/scratchpad/frame.html)",
       "Bash(pkill -f \"http-server _site\")",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(rm -f src/content/ministries/music-ministry.md src/content/events/*.md src/content/news/2026-07-20-officers-elected.md src/content/news/2026-06-22-baptism-thanks.md && ls src/content/events src/content/news src/content/ministries)",
+      "Bash(npm install *)",
+      "Bash(node -e ' *)"
+    ],
+    "additionalDirectories": [
+      "/Users/kluivert/Personal/Irish_gh/src/content/events"
     ]
   }
 }

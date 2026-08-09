@@ -33,9 +33,9 @@ collections:
   #  EVENTS
   # ===========================================================================
   - name: events
-    label: Events
-    label_singular: Event
-    description: "Communion Sabbaths, Youth Sabbath, Week of Prayer, fellowship days, baptisms — anything with a date."
+    label: Gatherings
+    label_singular: Gathering
+    description: "Fellowship Sabbaths, weeks of prayer, newcomers' afternoons — anything with a date."
     folder: src/content/events
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -124,7 +124,7 @@ collections:
   - name: news
     label: News & Notices
     label_singular: Post
-    description: "Announcements, church notices, reports."
+    description: "Announcements, community notices, reports."
     folder: src/content/news
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -155,15 +155,15 @@ collections:
   #  MINISTRIES / DEPARTMENTS
   # ===========================================================================
   - name: ministries
-    label: Ministries
-    label_singular: Ministry
-    description: "Sabbath School, AY, Pathfinders, Music, Health & Welfare, Women's Ministries and the rest."
+    label: What we do
+    label_singular: Strand
+    description: "Worship & study, youth, children & families, welfare, music — the strands of community life."
     folder: src/content/ministries
     create: true
     slug: "{{slug}}"
     sortable_fields: [order, title]
     fields:
-      - { name: title, label: "Ministry name", widget: string }
+      - { name: title, label: "Name", widget: string }
       - {
           name: icon,
           label: "Icon",
@@ -177,7 +177,7 @@ collections:
           label: "When it meets",
           widget: string,
           required: false,
-          hint: "e.g. Saturdays 9:45am, Monthly, Ongoing",
+          hint: "e.g. At each gathering, All year round, Monthly",
         }
       - { name: leader, label: "Led by", widget: string, required: false }
       - {
@@ -185,7 +185,7 @@ collections:
           label: "Contact email",
           widget: string,
           required: false,
-          hint: "Leave blank to use the main church email.",
+          hint: "Leave blank to use the main community email.",
         }
       - { name: image, label: "Photo", widget: image, required: false }
       - {
@@ -196,14 +196,14 @@ collections:
           value_type: int,
           hint: "Lower numbers appear first.",
         }
-      - { name: body, label: "About this ministry", widget: markdown }
+      - { name: body, label: "About this", widget: markdown }
 
   # ===========================================================================
   #  CHURCH OFFICERS
   # ===========================================================================
   - name: team
-    label: Church Officers
-    label_singular: Officer
+    label: The Team
+    label_singular: Team member
     folder: src/content/team
     create: true
     slug: "{{slug}}"
@@ -214,7 +214,7 @@ collections:
           name: role,
           label: "Role",
           widget: string,
-          hint: "e.g. Pastor, First Elder, Church Clerk, Treasurer, Head Deaconess",
+          hint: "e.g. Coordinator, Secretary, Treasurer, Welfare Lead, Youth Lead",
         }
       - { name: photo, label: "Photo", widget: image, required: false }
       - { name: email, label: "Email", widget: string, required: false }
@@ -234,7 +234,7 @@ collections:
   - name: resources
     label: Support Guides
     label_singular: Guide
-    description: "Practical guides for members who have just arrived — PPS numbers, housing, healthcare, visas."
+    description: "Practical guides for people who have just arrived — PPS numbers, housing, healthcare, visas."
     folder: src/content/resources
     create: true
     slug: "{{slug}}"
@@ -303,7 +303,7 @@ collections:
               - { name: value, label: "Big text", widget: string }
               - { name: label, label: "Caption", widget: string }
           - name: pillars
-            label: "What we are about (three cards)"
+            label: "What we are about (cards)"
             widget: list
             max: 6
             summary: "{{fields.title}}"
@@ -364,9 +364,9 @@ collections:
     label: Site Settings
     files:
       - name: general
-        label: "Name, service times, contact & social links"
+        label: "Name, contact & social links"
         file: src/_data/site.json
-        description: "Changing these updates the header, footer, worship page and page titles everywhere."
+        description: "Changing these updates the header, footer and page titles everywhere."
         fields:
           - { name: name, label: "Full name", widget: string }
           - { name: short_name, label: "Short name / logo text", widget: string }
@@ -379,23 +379,6 @@ collections:
           - { name: url, label: "Website address", widget: string }
           - { name: email, label: "Contact email", widget: string }
           - { name: phone, label: "Phone", widget: string, required: false }
-          - name: services
-            label: "Service times"
-            widget: list
-            summary: "{{fields.day}} {{fields.time}} — {{fields.name}}"
-            fields:
-              - { name: name, label: "Service name", widget: string }
-              - {
-                  name: day,
-                  label: "Day",
-                  widget: select,
-                  options: [Saturday, Friday, Sunday, Monday, Tuesday, Wednesday, Thursday],
-                  default: Saturday,
-                }
-              - { name: time, label: "Time", widget: string }
-              - { name: note, label: "Short description", widget: text, required: false }
-          - { name: venue_name, label: "Meeting venue name", widget: string }
-          - { name: venue_address, label: "Meeting venue address", widget: text }
           - name: social
             label: "Social links"
             widget: object
