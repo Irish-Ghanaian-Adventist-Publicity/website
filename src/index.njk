@@ -4,7 +4,18 @@ permalink: /
 eleventyExcludeFromCollections: true
 ---
 
-<section class="hero">
+<section class="hero{% if home.hero_image %} hero--photo{% endif %}">
+  {% if home.hero_image %}
+    <img
+      class="hero__photo"
+      src="{{ home.hero_image | url }}"
+      alt="{{ home.hero_image_alt or 'Members of the Irish-Ghanaian Adventist Community gathered together' }}"
+      width="2000"
+      height="1195"
+      fetchpriority="high"
+    />
+  {% endif %}
+
   <div class="wrap hero__inner">
     <p class="hero__eyebrow">{{ home.hero_eyebrow }}</p>
     <h1 class="hero__title">{{ home.hero_title }}</h1>
@@ -17,20 +28,6 @@ eleventyExcludeFromCollections: true
     </p>
   </div>
 </section>
-
-{% if home.hero_image %}
-  <figure class="photo-band">
-    <img
-      src="{{ home.hero_image | url }}"
-      alt="{{ home.hero_image_alt or 'Members of the Irish-Ghanaian Adventist Community gathered together' }}"
-      width="2000"
-      height="653"
-    />
-    {% if home.hero_image_caption %}
-      <figcaption class="wrap">{{ home.hero_image_caption }}</figcaption>
-    {% endif %}
-  </figure>
-{% endif %}
 
 {% if home.stats.length %}
   <section class="facts">

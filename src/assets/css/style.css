@@ -19,10 +19,11 @@
   --line: #e3e2dd;
   --line-strong: #c9c8c2;
 
-  /* Single accent — deep, quiet blue */
-  --accent: #1f3a5f;
-  --accent-hover: #14283f;
-  --accent-soft: #eef1f5;
+  /* Single accent — Ming, a deep muted teal */
+  --accent: #36747d;
+  --accent-hover: #275860;
+  --accent-deep: #1d444a;
+  --accent-soft: #eef4f5;
 
   --radius: 4px;
   --radius-lg: 6px;
@@ -263,14 +264,15 @@ p {
 .logo__mark {
   display: grid;
   place-items: center;
-  width: 34px;
-  height: 34px;
-  border: 1.5px solid var(--ink);
-  border-radius: 2px;
-  font-family: var(--font-display);
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  padding: 0.3rem 0.5rem;
+  min-width: 54px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 3px;
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   flex: 0 0 auto;
 }
 
@@ -281,15 +283,10 @@ p {
 }
 
 .logo__text strong {
-  font-size: 0.97rem;
+  font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: -0.005em;
-}
-
-.logo__text small {
-  font-size: 0.68rem;
-  color: var(--ink-3);
-  letter-spacing: 0.02em;
+  color: var(--ink);
 }
 
 .nav ul {
@@ -326,13 +323,13 @@ p {
 
 .nav .nav__cta a.btn {
   color: #fff;
-  background: var(--ink);
-  border-color: var(--ink);
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 .nav .nav__cta a.btn:hover {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
 }
 
 .nav-toggle {
@@ -394,18 +391,18 @@ p {
   justify-content: center;
   padding: 0.65rem 1.25rem;
   border-radius: var(--radius);
-  background: var(--ink);
+  background: var(--accent);
   color: #fff;
   font-weight: 500;
   font-size: 0.92rem;
   text-decoration: none;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--accent);
   transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .btn:hover {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
   color: #fff;
 }
 
@@ -461,6 +458,95 @@ p {
   max-width: 46rem;
 }
 
+/* --- Hero with the photograph behind the words ---------------------------
+   The group photo has faces across its upper two thirds and grass below, so
+   the text sits low and the scrim is weighted to the bottom. That keeps the
+   copy legible without covering anyone's face. */
+
+.hero--photo {
+  position: relative;
+  isolation: isolate;
+  border-bottom: 0;
+  min-height: clamp(30rem, 76vh, 46rem);
+  display: flex;
+  align-items: flex-end;
+  background: var(--ink);
+}
+
+.hero__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 28%;
+  z-index: -2;
+}
+
+/* Scrim: near-transparent over the faces, deep at the foot of the picture. */
+.hero--photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+      to bottom,
+      rgba(10, 14, 18, 0.42) 0%,
+      rgba(10, 14, 18, 0.22) 22%,
+      rgba(10, 14, 18, 0.55) 60%,
+      rgba(10, 14, 18, 0.78) 100%
+    ),
+    linear-gradient(
+      to right,
+      rgba(10, 14, 18, 0.66) 0%,
+      rgba(10, 14, 18, 0.4) 34%,
+      rgba(10, 14, 18, 0) 68%
+    );
+}
+
+.hero--photo .hero__inner {
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+  max-width: 44rem;
+}
+
+.hero--photo .hero__eyebrow {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.hero--photo .hero__title {
+  color: #fff;
+  text-wrap: balance;
+}
+
+.hero--photo .hero__text {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero--photo .btn {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.hero--photo .btn:hover {
+  background: #fff;
+  border-color: #fff;
+  color: var(--ink);
+}
+
+.hero--photo .btn--ghost {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #fff;
+  backdrop-filter: blur(2px);
+}
+
+.hero--photo .btn--ghost:hover {
+  background: #fff;
+  border-color: #fff;
+  color: var(--ink);
+}
+
 .hero__eyebrow {
   font-size: 0.72rem;
   letter-spacing: 0.15em;
@@ -494,34 +580,6 @@ p {
 /* Full-width photograph directly under the hero.
    The image is a wide panorama; on narrow screens `object-fit: cover` keeps a
    sensible band of it rather than shrinking everyone to invisibility. */
-.photo-band {
-  margin: 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.photo-band img {
-  width: 100%;
-  height: auto;
-  max-height: 62vh;
-  object-fit: cover;
-  object-position: center;
-  /* Holds the space, and shows while the photograph is still loading. */
-  background: var(--paper-3);
-}
-
-.photo-band figcaption {
-  padding-block: 0.85rem;
-  font-size: 0.82rem;
-  color: var(--ink-3);
-}
-
-@media (max-width: 760px) {
-  .photo-band img {
-    height: 42vw;
-    min-height: 190px;
-  }
-}
-
 /* --------------------------------------------------------------------------
    Facts row (replaces the old stats band)
    -------------------------------------------------------------------------- */
@@ -571,11 +629,11 @@ p {
 
 .cards {
   display: grid;
+  /* Each card carries its own hairline ring and the 1px gap lets neighbouring
+     rings meet, so the grid reads as one ruled block. Doing it this way (rather
+     than a coloured grid background showing through the gaps) means an odd
+     number of cards leaves the empty cell blank instead of a grey slab. */
   gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
 }
 
 .cards--3 {
@@ -589,6 +647,7 @@ p {
 .card {
   position: relative;
   background: var(--paper);
+  box-shadow: 0 0 0 1px var(--line);
   padding: 1.75rem;
   text-decoration: none;
   color: inherit;
@@ -599,6 +658,8 @@ p {
 
 a.card:hover {
   background: var(--paper-2);
+  box-shadow: 0 0 0 1px var(--accent);
+  z-index: 1;
 }
 
 .card h2,
@@ -983,7 +1044,7 @@ a.card--pinned:hover {
 }
 
 .cta-band {
-  background: var(--ink);
+  background: var(--accent-deep);
   color: rgba(255, 255, 255, 0.78);
   padding-block: clamp(3.25rem, 7vw, 4.75rem);
   text-align: center;
@@ -1003,7 +1064,7 @@ a.card--pinned:hover {
 .cta-band .btn {
   background: #fff;
   border-color: #fff;
-  color: var(--ink);
+  color: var(--accent-deep);
 }
 
 .cta-band .btn:hover {
@@ -1362,6 +1423,14 @@ a.card--pinned:hover {
   .notice-bar,
   .cta-band,
   .nav-toggle {
+    display: none;
+  }
+}
+
+/* On the narrowest screens the IGAC mark carries the identity on its own —
+   the full name wraps to two lines and pushes the header out of shape. */
+@media (max-width: 460px) {
+  .logo__text {
     display: none;
   }
 }
