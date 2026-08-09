@@ -644,6 +644,11 @@ p {
   grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
 }
 
+/* Team grid: three across at most, so each portrait gets real width. */
+.cards--team {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
 .card {
   position: relative;
   background: var(--paper);
@@ -760,18 +765,21 @@ a.card--pinned:hover {
 .card--person {
   align-items: center;
   text-align: center;
-  padding: 2.25rem 1.5rem;
+  padding: 2.75rem 1.5rem 2.5rem;
 }
 
 .card--person img,
 .avatar-fallback {
-  width: 132px;
-  height: 132px;
+  /* Scales with the card, so the portraits stay large on a wide screen and
+     still fit a phone. */
+  width: clamp(150px, 15vw, 210px);
+  aspect-ratio: 1;
+  height: auto;
   border-radius: 50%;
   object-fit: cover;
   /* Faces sit in the upper part of a portrait crop, so bias away from centre. */
-  object-position: 50% 30%;
-  margin-bottom: 1.25rem;
+  object-position: 50% 28%;
+  margin-bottom: 1.5rem;
   box-shadow: 0 0 0 1px var(--line);
 }
 
@@ -781,19 +789,20 @@ a.card--pinned:hover {
   background: var(--paper-3);
   color: var(--ink-3);
   font-family: var(--font-display);
-  font-size: 2.6rem;
+  font-size: clamp(2.8rem, 4vw, 4rem);
   font-weight: 600;
 }
 
 /* Reserve two lines for the name so a long one (which wraps) does not push its
    role out of line with the shorter names beside it. */
 .card--person h3 {
+  font-size: 1.15rem;
   min-height: 2.4em;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.4rem;
 }
 
 .card__role {
-  font-size: 0.78rem !important;
+  font-size: 0.8rem !important;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-3) !important;
