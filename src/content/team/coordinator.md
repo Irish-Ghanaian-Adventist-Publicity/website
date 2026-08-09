@@ -1,6 +1,6 @@
 ---
-title: Name to be added
-role: Coordinator
+title: Chaplain Greg Clay Davis
+role: Chairperson
 photo: ""
 email: ""
 order: 1
