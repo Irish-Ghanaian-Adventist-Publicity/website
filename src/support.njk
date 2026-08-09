@@ -1,0 +1,46 @@
+---
+layout: layouts/base.njk
+title: New to Ireland
+subtitle: Practical guides written by people who have been through it — for both the Republic and Northern Ireland.
+permalink: /support/
+eleventyExcludeFromCollections: true
+---
+
+<div class="page-hero">
+  <div class="wrap">
+    <h1>{{ title }}</h1>
+    <p class="page-hero__sub">{{ subtitle }}</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="section section--flush">
+    {% set guides = collections.resources | sort(false, false, "data.order") %}
+    {% if guides.length %}
+      <div class="cards cards--3">
+        {% for guide in guides %}
+          <a class="card card--guide" href="{{ guide.url | url }}">
+            <span class="card__icon card__icon--sm" aria-hidden="true">
+              {% set icon = guide.data.icon %}{% include "partials/icon.njk" %}
+            </span>
+            <h2>{{ guide.data.title }}</h2>
+            <p>{{ guide.data.summary }}</p>
+            <span class="tag">{{ guide.data.jurisdiction }}</span>
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="empty"><p>Guides are being written — check back soon.</p></div>
+    {% endif %}
+  </section>
+
+  <section class="section section--flush">
+    <div class="callout callout--wide">
+      <h2>Can't find what you need?</h2>
+      <p>
+        Ask us directly. Email <a href="mailto:{{ site.email }}">{{ site.email }}</a> — a
+        volunteer will point you to the right person, and nothing you tell us goes any further.
+      </p>
+    </div>
+  </section>
+</div>

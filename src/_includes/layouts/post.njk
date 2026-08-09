@@ -1,0 +1,23 @@
+---
+layout: layouts/base.njk
+---
+
+<div class="page-hero page-hero--tight">
+  <div class="wrap wrap--narrow">
+    <p class="breadcrumb"><a href="{{ '/news/' | url }}">← All news</a></p>
+    <h1>{{ title }}</h1>
+    <p class="page-hero__meta">
+      <time datetime="{{ date | isoDate }}">{{ date | longDate }}</time>
+      {% if author %} · {{ author }}{% endif %}
+    </p>
+  </div>
+</div>
+
+<div class="wrap wrap--narrow">
+  <article class="prose">
+    {% if image %}
+      <img class="detail__image" src="{{ image | url }}" alt="" loading="lazy" />
+    {% endif %}
+    {{ content | safe }}
+  </article>
+</div>

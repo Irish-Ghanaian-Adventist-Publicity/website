@@ -1,0 +1,48 @@
+---
+layout: layouts/base.njk
+title: Ministries
+subtitle: Every part of the church body has something to do. Here is where the work happens — and where you might fit.
+permalink: /ministries/
+eleventyExcludeFromCollections: true
+---
+
+<div class="page-hero">
+  <div class="wrap">
+    <h1>{{ title }}</h1>
+    <p class="page-hero__sub">{{ subtitle }}</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="section section--flush">
+    {% set ministries = collections.ministries | sort(false, false, "data.order") %}
+    {% if ministries.length %}
+      <div class="cards cards--3">
+        {% for ministry in ministries %}
+          <a class="card card--guide" href="{{ ministry.url | url }}">
+            <span class="card__icon" aria-hidden="true">
+              {% set icon = ministry.data.icon %}{% include "partials/icon.njk" %}
+            </span>
+            <h2>{{ ministry.data.title }}</h2>
+            <p>{{ ministry.data.summary }}</p>
+            {% if ministry.data.meets %}<span class="tag">{{ ministry.data.meets }}</span>{% endif %}
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="empty"><p>Ministry pages are being added — check back soon.</p></div>
+    {% endif %}
+  </section>
+
+  <section class="section section--flush">
+    <div class="callout callout--wide">
+      <h2>Nothing here is anyone's private property</h2>
+      <p>
+        If you can sing, drive, cook, teach, fix a sound desk, sit with someone who is
+        unwell, or simply turn up early and set out chairs — there is a place for you.
+        Speak to any ministry leader, or email
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>.
+      </p>
+    </div>
+  </section>
+</div>

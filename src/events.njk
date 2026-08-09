@@ -1,0 +1,54 @@
+---
+layout: layouts/base.njk
+title: Events
+subtitle: Special Sabbaths, prayer weeks, baptisms and fellowship days across the island.
+permalink: /events/
+eleventyExcludeFromCollections: true
+---
+
+<div class="page-hero">
+  <div class="wrap">
+    <h1>{{ title }}</h1>
+    <p class="page-hero__sub">{{ subtitle }}</p>
+  </div>
+</div>
+
+<div class="wrap">
+  {% if collections.upcomingEvents.length %}
+    <section class="section section--flush">
+      <h2 class="section__title">Coming up</h2>
+      <div class="cards cards--3">
+        {% for event in collections.upcomingEvents %}
+          {% include "partials/event-card.njk" %}
+        {% endfor %}
+      </div>
+    </section>
+  {% else %}
+    <section class="section section--flush">
+      <div class="empty">
+        <p><strong>Nothing on the calendar just yet.</strong></p>
+        <p>
+          We're planning the next one. Follow us or
+          <a href="{{ '/join/' | url }}">join the mailing list</a> and you'll be the first to know.
+        </p>
+      </div>
+    </section>
+  {% endif %}
+
+  {% if collections.pastEvents.length %}
+    <section class="section section--flush">
+      <h2 class="section__title">Previously</h2>
+      <ul class="past-list">
+        {% for event in collections.pastEvents | limit(12) %}
+          <li>
+            <a href="{{ event.url | url }}">
+              <time datetime="{{ event.data.event_date | isoDate }}">{{ event.data.event_date | longDate }}</time>
+              <span>{{ event.data.title }}</span>
+              {% if event.data.city %}<em>{{ event.data.city }}</em>{% endif %}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+</div>

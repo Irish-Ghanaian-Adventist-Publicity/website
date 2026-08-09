@@ -1,0 +1,16 @@
+<a class="card card--event" href="{{ event.url | url }}">
+  <span class="date-tile" aria-hidden="true">
+    <span class="date-tile__month">{{ event.data.event_date | monthAbbr }}</span>
+    <span class="date-tile__day">{{ event.data.event_date | dayNum }}</span>
+  </span>
+  <div class="card--event__body">
+    <h3>{{ event.data.title }}</h3>
+    <p class="card__meta">
+      <time datetime="{{ event.data.event_date | isoDate }}">{{ event.data.event_date | shortDate }}</time>
+      {% if event.data.start_time %} · {{ event.data.start_time }}{% endif %}
+      {% if event.data.city %} · {{ event.data.city }}{% endif %}
+    </p>
+    <p>{{ event.templateContent | excerpt(120) }}</p>
+    {% if event.data.price %}<span class="tag">{{ event.data.price }}</span>{% endif %}
+  </div>
+</a>

@@ -1,0 +1,422 @@
+# =============================================================================
+#  Decap CMS configuration — Irish-Ghanaian Adventist Community (IGAC)
+#  ---------------------------------------------------------------------------
+#  SETUP: change `repo` below to your own GitHub repository, and `base_url` to
+#  the address of your OAuth helper. Both are explained in README.md.
+# =============================================================================
+
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME # <-- CHANGE ME
+  branch: main
+  # The OAuth helper that lets editors sign in with GitHub. See README.md.
+  base_url: https://YOUR-OAUTH-HELPER.workers.dev # <-- CHANGE ME
+  auth_endpoint: auth
+
+# Lets you run the CMS on your own laptop without logging in.
+# Run `npm run dev`, then open http://localhost:8080/admin/
+local_backend: true
+
+# Edits become drafts you can review before they go live.
+# Delete these two lines if you'd rather changes publish immediately.
+publish_mode: editorial_workflow
+
+media_folder: "src/assets/uploads"
+public_folder: "/assets/uploads"
+
+site_url: https://YOUR-SITE-URL # <-- CHANGE ME
+display_url: https://YOUR-SITE-URL # <-- CHANGE ME
+logo_url: /assets/img/logo.svg
+
+collections:
+  # ===========================================================================
+  #  EVENTS
+  # ===========================================================================
+  - name: events
+    label: Events
+    label_singular: Event
+    description: "Communion Sabbaths, Youth Sabbath, Week of Prayer, fellowship days, baptisms — anything with a date."
+    folder: src/content/events
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    sortable_fields: [event_date, title]
+    summary: "{{event_date | date('DD MMM YYYY')}} — {{title}}"
+    view_filters:
+      - { label: "In Dublin", field: city, pattern: Dublin }
+      - { label: "In Belfast", field: city, pattern: Belfast }
+    fields:
+      - { name: title, label: "Event name", widget: string }
+      - {
+          name: event_date,
+          label: "Date",
+          widget: datetime,
+          date_format: "DD-MM-YYYY",
+          time_format: false,
+          picker_utc: true,
+        }
+      - {
+          name: start_time,
+          label: "Time",
+          widget: string,
+          required: false,
+          hint: "For example: 11:00am, or 9:45am - 5:00pm",
+        }
+      - { name: venue, label: "Venue name", widget: string, required: false }
+      - { name: address, label: "Address", widget: text, required: false }
+      - {
+          name: city,
+          label: "City / town",
+          widget: select,
+          options:
+            [
+              Dublin,
+              Cork,
+              Galway,
+              Limerick,
+              Waterford,
+              Drogheda,
+              Belfast,
+              Derry,
+              Lisburn,
+              Newry,
+              Online,
+              Other,
+            ],
+          default: Dublin,
+        }
+      - {
+          name: price,
+          label: "Cost",
+          widget: string,
+          required: false,
+          default: "Free",
+          hint: "e.g. Free, €10, £5",
+        }
+      - {
+          name: booking_url,
+          label: "Booking or RSVP link",
+          widget: string,
+          required: false,
+        }
+      - {
+          name: image,
+          label: "Poster or photo",
+          widget: image,
+          required: false,
+          media_library: { config: { max_file_size: 4000000 } },
+        }
+      - {
+          name: featured,
+          label: "Show on the home page",
+          widget: boolean,
+          default: false,
+        }
+      - {
+          name: body,
+          label: "Details",
+          widget: markdown,
+          hint: "What's happening, who it's for, anything people should bring.",
+        }
+
+  # ===========================================================================
+  #  NEWS
+  # ===========================================================================
+  - name: news
+    label: News & Notices
+    label_singular: Post
+    description: "Announcements, church notices, reports."
+    folder: src/content/news
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    sortable_fields: [date, title]
+    fields:
+      - { name: title, label: "Headline", widget: string }
+      - {
+          name: date,
+          label: "Date published",
+          widget: datetime,
+          date_format: "DD-MM-YYYY",
+          time_format: false,
+          picker_utc: true,
+        }
+      - { name: author, label: "Written by", widget: string, required: false }
+      - {
+          name: summary,
+          label: "Short summary",
+          widget: text,
+          required: false,
+          hint: "One or two sentences shown on the news listing.",
+        }
+      - { name: image, label: "Photo", widget: image, required: false }
+      - { name: pinned, label: "Pin to the top", widget: boolean, default: false }
+      - { name: body, label: "Article", widget: markdown }
+
+  # ===========================================================================
+  #  MINISTRIES / DEPARTMENTS
+  # ===========================================================================
+  - name: ministries
+    label: Ministries
+    label_singular: Ministry
+    description: "Sabbath School, AY, Pathfinders, Music, Health & Welfare, Women's Ministries and the rest."
+    folder: src/content/ministries
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: [order, title]
+    fields:
+      - { name: title, label: "Ministry name", widget: string }
+      - {
+          name: icon,
+          label: "Icon",
+          widget: select,
+          options: [faith, community, music, culture, support, education, health, sport, work, money, travel, home, document],
+          default: community,
+        }
+      - { name: summary, label: "One-line summary", widget: string }
+      - {
+          name: meets,
+          label: "When it meets",
+          widget: string,
+          required: false,
+          hint: "e.g. Saturdays 9:45am, Monthly, Ongoing",
+        }
+      - { name: leader, label: "Led by", widget: string, required: false }
+      - {
+          name: contact_email,
+          label: "Contact email",
+          widget: string,
+          required: false,
+          hint: "Leave blank to use the main church email.",
+        }
+      - { name: image, label: "Photo", widget: image, required: false }
+      - {
+          name: order,
+          label: "Order on the page",
+          widget: number,
+          default: 10,
+          value_type: int,
+          hint: "Lower numbers appear first.",
+        }
+      - { name: body, label: "About this ministry", widget: markdown }
+
+  # ===========================================================================
+  #  CHURCH OFFICERS
+  # ===========================================================================
+  - name: team
+    label: Church Officers
+    label_singular: Officer
+    folder: src/content/team
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: [order, title]
+    fields:
+      - { name: title, label: "Full name", widget: string }
+      - {
+          name: role,
+          label: "Role",
+          widget: string,
+          hint: "e.g. Pastor, First Elder, Church Clerk, Treasurer, Head Deaconess",
+        }
+      - { name: photo, label: "Photo", widget: image, required: false }
+      - { name: email, label: "Email", widget: string, required: false }
+      - {
+          name: order,
+          label: "Order on the page",
+          widget: number,
+          default: 10,
+          value_type: int,
+          hint: "Lower numbers appear first.",
+        }
+      - { name: body, label: "Short bio", widget: markdown, required: false }
+
+  # ===========================================================================
+  #  SUPPORT GUIDES ("New to Ireland")
+  # ===========================================================================
+  - name: resources
+    label: Support Guides
+    label_singular: Guide
+    description: "Practical guides for members who have just arrived — PPS numbers, housing, healthcare, visas."
+    folder: src/content/resources
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: [order, title]
+    fields:
+      - { name: title, label: "Guide title", widget: string }
+      - {
+          name: icon,
+          label: "Icon",
+          widget: select,
+          options: [document, home, health, work, education, money, community, travel],
+          default: document,
+        }
+      - { name: summary, label: "One-line summary", widget: string }
+      - {
+          name: jurisdiction,
+          label: "Applies to",
+          widget: select,
+          options: ["Republic of Ireland", "Northern Ireland", "Both"],
+          default: "Both",
+        }
+      - {
+          name: order,
+          label: "Order on the page",
+          widget: number,
+          default: 10,
+          value_type: int,
+        }
+      - { name: body, label: "Guide content", widget: markdown }
+
+  # ===========================================================================
+  #  PAGES (fixed pages, one entry each)
+  # ===========================================================================
+  - name: pages
+    label: Pages
+    files:
+      - name: home
+        label: "Home page"
+        file: src/_data/home.json
+        description: "The big text at the top of the home page and the three cards below it."
+        fields:
+          - { name: hero_eyebrow, label: "Small line above the title", widget: string }
+          - { name: hero_title, label: "Main title", widget: string }
+          - { name: hero_text, label: "Introduction paragraph", widget: text }
+          - { name: hero_image, label: "Background photo", widget: image, required: false }
+          - { name: primary_cta_label, label: "Main button text", widget: string }
+          - { name: primary_cta_url, label: "Main button link", widget: string }
+          - {
+              name: secondary_cta_label,
+              label: "Second button text",
+              widget: string,
+              required: false,
+            }
+          - {
+              name: secondary_cta_url,
+              label: "Second button link",
+              widget: string,
+              required: false,
+            }
+          - name: stats
+            label: "Numbers strip"
+            widget: list
+            max: 4
+            summary: "{{fields.value}} — {{fields.label}}"
+            fields:
+              - { name: value, label: "Big text", widget: string }
+              - { name: label, label: "Caption", widget: string }
+          - name: pillars
+            label: "What we are about (three cards)"
+            widget: list
+            max: 6
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: "Card title", widget: string }
+              - { name: text, label: "Card text", widget: text }
+              - {
+                  name: icon,
+                  label: "Icon",
+                  widget: select,
+                  options: [faith, community, music, culture, support, education, health, sport],
+                  default: community,
+                }
+          - { name: quote, label: "Featured verse or quote", widget: text, required: false }
+          - {
+              name: quote_author,
+              label: "Reference / who said it",
+              widget: string,
+              required: false,
+            }
+
+      - name: about
+        label: "About page"
+        file: src/content/pages/about.md
+        fields:
+          - { name: title, label: "Page title", widget: string }
+          - { name: subtitle, label: "Subtitle", widget: text, required: false }
+          - { name: image, label: "Header photo", widget: image, required: false }
+          - { name: body, label: "Page content", widget: markdown }
+
+      - name: join
+        label: "Get involved page"
+        file: src/content/pages/join.md
+        fields:
+          - { name: title, label: "Page title", widget: string }
+          - { name: subtitle, label: "Subtitle", widget: text, required: false }
+          - {
+              name: form_url,
+              label: "Sign-up form link",
+              widget: string,
+              required: false,
+              hint: "Paste a Google Form link here and the button will point to it.",
+            }
+          - { name: body, label: "Page content", widget: markdown }
+
+      - name: contact
+        label: "Contact page"
+        file: src/content/pages/contact.md
+        fields:
+          - { name: title, label: "Page title", widget: string }
+          - { name: subtitle, label: "Subtitle", widget: text, required: false }
+          - { name: body, label: "Page content", widget: markdown }
+
+  # ===========================================================================
+  #  SITE SETTINGS
+  # ===========================================================================
+  - name: settings
+    label: Site Settings
+    files:
+      - name: general
+        label: "Name, service times, contact & social links"
+        file: src/_data/site.json
+        description: "Changing these updates the header, footer, worship page and page titles everywhere."
+        fields:
+          - { name: name, label: "Full name", widget: string }
+          - { name: short_name, label: "Short name / logo text", widget: string }
+          - { name: tagline, label: "Tagline", widget: string }
+          - {
+              name: description,
+              label: "Description for Google & social shares",
+              widget: text,
+            }
+          - { name: url, label: "Website address", widget: string }
+          - { name: email, label: "Contact email", widget: string }
+          - { name: phone, label: "Phone", widget: string, required: false }
+          - name: services
+            label: "Service times"
+            widget: list
+            summary: "{{fields.day}} {{fields.time}} — {{fields.name}}"
+            fields:
+              - { name: name, label: "Service name", widget: string }
+              - {
+                  name: day,
+                  label: "Day",
+                  widget: select,
+                  options: [Saturday, Friday, Sunday, Monday, Tuesday, Wednesday, Thursday],
+                  default: Saturday,
+                }
+              - { name: time, label: "Time", widget: string }
+              - { name: note, label: "Short description", widget: text, required: false }
+          - { name: venue_name, label: "Meeting venue name", widget: string }
+          - { name: venue_address, label: "Meeting venue address", widget: text }
+          - name: social
+            label: "Social links"
+            widget: object
+            fields:
+              - { name: facebook, label: Facebook, widget: string, required: false }
+              - { name: instagram, label: Instagram, widget: string, required: false }
+              - { name: whatsapp, label: "WhatsApp group", widget: string, required: false }
+              - { name: youtube, label: YouTube, widget: string, required: false }
+              - { name: x, label: "X / Twitter", widget: string, required: false }
+          - name: nav
+            label: "Menu links"
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - { name: label, label: "Menu text", widget: string }
+              - { name: url, label: "Link", widget: string }
+          - {
+              name: notice,
+              label: "Site-wide banner",
+              widget: string,
+              required: false,
+              hint: "Leave empty to hide the banner. Use it for urgent notices.",
+            }
+          - { name: notice_url, label: "Banner link", widget: string, required: false }

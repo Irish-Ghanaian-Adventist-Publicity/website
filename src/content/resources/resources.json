@@ -1,0 +1,5 @@
+{
+  "layout": "layouts/guide.njk",
+  "tags": "resources",
+  "permalink": "/support/{{ page.fileSlug }}/"
+}

@@ -1,0 +1,77 @@
+---
+layout: layouts/base.njk
+title: Worship with us
+subtitle: Sabbath service times, where to find us, and what to expect if it's your first visit.
+permalink: /worship/
+eleventyExcludeFromCollections: true
+---
+
+<div class="page-hero">
+  <div class="wrap">
+    <h1>{{ title }}</h1>
+    <p class="page-hero__sub">{{ subtitle }}</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="section section--flush">
+    <h2 class="section__title">When we meet</h2>
+    <div class="services">
+      {% for service in site.services %}
+        <div class="service">
+          <span class="service__day">{{ service.day }}</span>
+          <div class="service__body">
+            <h3>{{ service.name }}</h3>
+            <p class="service__time">{{ service.time }}</p>
+            {% if service.note %}<p class="service__note">{{ service.note }}</p>{% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <p class="note">
+      The Sabbath begins at sunset on Friday and ends at sunset on Saturday. Sunset times on
+      this island shift a great deal between summer and winter, so our Friday vespers moves
+      with them — check the notices or ask us for this week's time.
+    </p>
+  </section>
+
+  <section class="section section--flush">
+    <div class="split">
+      <div>
+        <h2>Where to find us</h2>
+        <p class="venue">
+          <strong>{{ site.venue_name }}</strong><br />
+          {{ site.venue_address }}
+        </p>
+        <p>
+          If you are travelling from outside the city, or you'd like someone to meet you at
+          the door, email <a href="mailto:{{ site.email }}">{{ site.email }}</a> and we will
+          arrange it. We would much rather do that than have you wandering around looking for
+          the right building.
+        </p>
+      </div>
+
+      <div class="callout">
+        <h2>Your first Sabbath</h2>
+        <p><strong>What should I wear?</strong> Whatever you have. Many of us dress up; nobody is counting.</p>
+        <p><strong>What happens?</strong> Sabbath School is Bible study in a small group. Divine Service is the main service — singing, prayer, and a sermon of about forty minutes.</p>
+        <p><strong>Will I be put on the spot?</strong> No. Visitors are welcomed warmly, but you will never be made to stand up or speak.</p>
+        <p><strong>Are my children welcome?</strong> Very. There are Sabbath School classes for every age group, and no one minds noise.</p>
+        <p><strong>Is there food?</strong> Yes. Please stay for it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--flush">
+    <div class="callout callout--wide">
+      <h2>Prayer requests</h2>
+      <p>
+        If you would like the church to pray for you — for health, for family, for a
+        situation you'd rather not explain in public — email
+        <a href="mailto:{{ site.email }}?subject=Prayer request">{{ site.email }}</a>. Requests
+        go only to those who pray over them, and no name is read out without your permission.
+      </p>
+    </div>
+  </section>
+</div>

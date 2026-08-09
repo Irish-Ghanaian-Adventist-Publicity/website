@@ -1,0 +1,61 @@
+{
+  "name": "Irish-Ghanaian Adventist Community",
+  "short_name": "IGAC",
+  "tagline": "Akwaaba — a Ghanaian Seventh-day Adventist family on the island of Ireland",
+  "description": "The Irish-Ghanaian Adventist Community (IGAC) — Sabbath worship, ministries, fellowship and practical support for Ghanaian Adventists and friends across the island of Ireland.",
+  "url": "https://example.com",
+  "email": "hello@igac.ie",
+  "phone": "",
+  "services": [
+    {
+      "name": "Sabbath School",
+      "day": "Saturday",
+      "time": "9:45am – 10:45am",
+      "note": "Bible study in small groups, with a class for every age."
+    },
+    {
+      "name": "Divine Service",
+      "day": "Saturday",
+      "time": "11:00am – 1:00pm",
+      "note": "Our main worship service — singing, prayer and the sermon."
+    },
+    {
+      "name": "Afternoon Programme & AY",
+      "day": "Saturday",
+      "time": "3:00pm – 5:00pm",
+      "note": "Youth-led worship, Bible discussion and fellowship."
+    },
+    {
+      "name": "Friday Vespers",
+      "day": "Friday",
+      "time": "Sunset",
+      "note": "Welcoming the Sabbath together, in person and online."
+    },
+    {
+      "name": "Midweek Prayer Meeting",
+      "day": "Wednesday",
+      "time": "7:30pm",
+      "note": "Prayer and Bible study, online and in person."
+    }
+  ],
+  "venue_name": "Venue to be added",
+  "venue_address": "Add your meeting address here",
+  "social": {
+    "facebook": "",
+    "instagram": "",
+    "whatsapp": "",
+    "youtube": "",
+    "x": ""
+  },
+  "nav": [
+    { "label": "About", "url": "/about/" },
+    { "label": "Worship", "url": "/worship/" },
+    { "label": "Ministries", "url": "/ministries/" },
+    { "label": "Events", "url": "/events/" },
+    { "label": "News", "url": "/news/" },
+    { "label": "New to Ireland", "url": "/support/" },
+    { "label": "Contact", "url": "/contact/" }
+  ],
+  "notice": "Sabbath blessings — join us this Saturday for Sabbath School at 9:45am.",
+  "notice_url": "/worship/"
+}

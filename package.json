@@ -1,0 +1,17 @@
+{
+  "name": "ghana-community-ireland",
+  "version": "1.0.0",
+  "description": "Website for the Ghanaian community on the island of Ireland",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "start": "eleventy --serve",
+    "dev": "npx --yes concurrently \"npm:start\" \"npm:cms-proxy\"",
+    "cms-proxy": "npx --yes decap-server",
+    "build": "eleventy",
+    "clean": "rm -rf _site"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

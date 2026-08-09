@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+---
+
+<div class="page-hero page-hero--tight">
+  <div class="wrap wrap--narrow">
+    <p class="breadcrumb"><a href="{{ '/ministries/' | url }}">← All ministries</a></p>
+    <h1>{{ title }}</h1>
+    {% if summary %}<p class="page-hero__sub">{{ summary }}</p>{% endif %}
+    {% if meets %}<p class="tag tag--light">Meets: {{ meets }}</p>{% endif %}
+  </div>
+</div>
+
+<div class="wrap wrap--narrow">
+  <article class="prose">
+    {% if image %}
+      <img class="detail__image" src="{{ image | url }}" alt="" loading="lazy" />
+    {% endif %}
+    {{ content | safe }}
+  </article>
+
+  <div class="callout">
+    <h2>Get involved</h2>
+    <p>
+      {% if leader %}This ministry is led by <strong>{{ leader }}</strong>. {% endif %}
+      Everyone is welcome to join in — you do not need experience, only willingness.
+      Email <a href="mailto:{{ contact_email or site.email }}">{{ contact_email or site.email }}</a>.
+    </p>
+  </div>
+</div>

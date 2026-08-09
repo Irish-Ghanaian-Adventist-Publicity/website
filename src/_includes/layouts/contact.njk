@@ -1,0 +1,33 @@
+---
+layout: layouts/base.njk
+---
+
+<div class="page-hero">
+  <div class="wrap">
+    <h1>{{ title }}</h1>
+    {% if subtitle %}<p class="page-hero__sub">{{ subtitle }}</p>{% endif %}
+  </div>
+</div>
+
+<div class="wrap wrap--narrow">
+  <div class="contact-strip">
+    <a class="contact-strip__item" href="mailto:{{ site.email }}">
+      <span>Email</span>
+      <strong>{{ site.email }}</strong>
+    </a>
+    {% if site.phone %}
+      <a class="contact-strip__item" href="tel:{{ site.phone | replace(" ", "") }}">
+        <span>Phone</span>
+        <strong>{{ site.phone }}</strong>
+      </a>
+    {% endif %}
+    {% if site.social.whatsapp %}
+      <a class="contact-strip__item" href="{{ site.social.whatsapp }}" rel="noopener">
+        <span>WhatsApp</span>
+        <strong>Join the group</strong>
+      </a>
+    {% endif %}
+  </div>
+
+  <article class="prose">{{ content | safe }}</article>
+</div>

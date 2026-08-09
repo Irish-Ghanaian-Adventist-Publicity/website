@@ -1,0 +1,5 @@
+{
+  "layout": "layouts/ministry.njk",
+  "tags": "ministries",
+  "permalink": "/ministries/{{ page.fileSlug }}/"
+}

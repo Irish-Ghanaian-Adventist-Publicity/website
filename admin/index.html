@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Content Manager — Ghana Community Ireland</title>
+  </head>
+  <body>
+    <!-- Decap CMS: the whole editing interface loads from this one script. -->
+    <script src="https://unpkg.com/decap-cms@^3.3.3/dist/decap-cms.js"></script>
+    <script>
+      // Show a friendly toast once a change is saved and the rebuild kicks off.
+      if (window.CMS) {
+        window.CMS.registerEventListener({
+          name: "postPublish",
+          handler: () => {
+            console.log("Published — the live site rebuilds in about a minute.");
+          },
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+---
+layout: layouts/base.njk
+---
+
+<div class="page-hero">
+  <div class="wrap">
+    <h1>{{ title }}</h1>
+    {% if subtitle %}<p class="page-hero__sub">{{ subtitle }}</p>{% endif %}
+  </div>
+</div>
+
+<div class="wrap wrap--narrow">
+  <article class="prose">{{ content | safe }}</article>
+
+  <div class="callout callout--wide">
+    {% if form_url %}
+      <h2>Stay in touch</h2>
+      <p>Two minutes, and we never share your details with anyone.</p>
+      <a class="btn" href="{{ form_url }}" rel="noopener">Open the form</a>
+    {% else %}
+      <h2>Stay in touch</h2>
+      <p>
+        Send us your name, the town you are living in, and whether you would like to be added
+        to the WhatsApp network. That is all we need.
+      </p>
+      <a class="btn" href="mailto:{{ site.email }}?subject=I'd like to stay in touch">Email {{ site.email }}</a>
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,48 @@
+---
+layout: layouts/base.njk
+---
+
+<div class="page-hero">
+  <div class="wrap">
+    <h1>{{ title }}</h1>
+    {% if subtitle %}<p class="page-hero__sub">{{ subtitle }}</p>{% endif %}
+  </div>
+</div>
+
+<div class="wrap wrap--narrow">
+  {% if image %}
+    <img class="detail__image" src="{{ image | url }}" alt="" loading="lazy" />
+  {% endif %}
+  <article class="prose">{{ content | safe }}</article>
+</div>
+
+{% if collections.teamMembers.length %}
+  <section class="section section--tint">
+    <div class="wrap">
+      <header class="section__head">
+        <h2>Church officers</h2>
+        <p>Elected by the membership, serving alongside the pastor.</p>
+      </header>
+
+      <div class="cards cards--4">
+        {% for member in collections.teamMembers %}
+          <article class="card card--person">
+            {% if member.data.photo %}
+              <img src="{{ member.data.photo | url }}" alt="{{ member.data.title }}" loading="lazy" />
+            {% else %}
+              <span class="avatar-fallback" aria-hidden="true">{{ member.data.title | first }}</span>
+            {% endif %}
+            <h3>{{ member.data.title }}</h3>
+            <p class="card__role">{{ member.data.role }}</p>
+            {% if member.templateContent %}
+              <div class="card__bio">{{ member.templateContent | safe }}</div>
+            {% endif %}
+            {% if member.data.email %}
+              <a class="card__email" href="mailto:{{ member.data.email }}">{{ member.data.email }}</a>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}

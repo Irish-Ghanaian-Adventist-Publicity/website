@@ -1,0 +1,41 @@
+---
+layout: layouts/base.njk
+---
+
+<div class="page-hero page-hero--tight">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="{{ '/events/' | url }}">← All events</a></p>
+    <h1>{{ title }}</h1>
+  </div>
+</div>
+
+<div class="wrap wrap--narrow">
+  <div class="detail-grid">
+    <article class="prose">
+      {% if image %}
+        <img class="detail__image" src="{{ image | url }}" alt="" loading="lazy" />
+      {% endif %}
+      {{ content | safe }}
+    </article>
+
+    <aside class="detail-card">
+      <h2>Event details</h2>
+      <dl>
+        <dt>Date</dt>
+        <dd><time datetime="{{ event_date | isoDate }}">{{ event_date | longDate }}</time></dd>
+
+        {% if start_time %}<dt>Time</dt><dd>{{ start_time }}</dd>{% endif %}
+        {% if venue %}<dt>Venue</dt><dd>{{ venue }}</dd>{% endif %}
+        {% if address %}<dt>Address</dt><dd>{{ address | replace("\n", ", ") }}</dd>{% endif %}
+        {% if city %}<dt>City</dt><dd>{{ city }}</dd>{% endif %}
+        {% if price %}<dt>Cost</dt><dd>{{ price }}</dd>{% endif %}
+      </dl>
+
+      {% if booking_url %}
+        <a class="btn btn--full" href="{{ booking_url }}" rel="noopener">Book your place</a>
+      {% else %}
+        <a class="btn btn--full btn--ghost" href="mailto:{{ site.email }}?subject={{ title | urlencode }}">Ask about this event</a>
+      {% endif %}
+    </aside>
+  </div>
+</div>

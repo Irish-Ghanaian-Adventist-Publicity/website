@@ -1,0 +1,35 @@
+{
+  "hero_eyebrow": "Ghana × Ireland · Seventh-day Adventist",
+  "hero_title": "Akwaaba. Come and worship with us.",
+  "hero_text": "The Irish-Ghanaian Adventist Community is a family of believers keeping the Sabbath together across the island of Ireland. Whether you have worshipped in an Adventist church all your life or you are simply curious, there is a seat for you this Sabbath.",
+  "hero_image": "",
+  "primary_cta_label": "Plan your first visit",
+  "primary_cta_url": "/worship/",
+  "secondary_cta_label": "What's on",
+  "secondary_cta_url": "/events/",
+  "stats": [
+    { "value": "Sat", "label": "We worship on the Sabbath" },
+    { "value": "9:45am", "label": "Sabbath School begins" },
+    { "value": "32", "label": "Counties, one family" },
+    { "value": "All", "label": "Welcome, without exception" }
+  ],
+  "pillars": [
+    {
+      "title": "Worship",
+      "text": "Sabbath School, Divine Service and Friday vespers — in English and in Twi, with the hymns and the harmonies we grew up on.",
+      "icon": "faith"
+    },
+    {
+      "title": "Fellowship",
+      "text": "A Ghanaian family far from home. We eat together after service, we pray for each other in the week, and nobody worships alone here.",
+      "icon": "community"
+    },
+    {
+      "title": "Service",
+      "text": "Health ministry, community outreach, and practical help for members finding their feet in Ireland — faith that shows up on a Tuesday.",
+      "icon": "support"
+    }
+  ],
+  "quote": "For where two or three gather in my name, there am I with them.",
+  "quote_author": "Matthew 18:20"
+}

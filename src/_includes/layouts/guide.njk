@@ -1,0 +1,25 @@
+---
+layout: layouts/base.njk
+---
+
+<div class="page-hero page-hero--tight">
+  <div class="wrap wrap--narrow">
+    <p class="breadcrumb"><a href="{{ '/support/' | url }}">← All guides</a></p>
+    <h1>{{ title }}</h1>
+    {% if summary %}<p class="page-hero__sub">{{ summary }}</p>{% endif %}
+    <p class="tag tag--light">Applies to: {{ jurisdiction }}</p>
+  </div>
+</div>
+
+<div class="wrap wrap--narrow">
+  <article class="prose">{{ content | safe }}</article>
+
+  <div class="callout">
+    <h2>Need a hand with this?</h2>
+    <p>
+      Nobody should have to work this out alone. Email
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a> and a volunteer who has been
+      through the same process will get back to you.
+    </p>
+  </div>
+</div>

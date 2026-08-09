@@ -1,0 +1,30 @@
+{% set i = pillar.icon or icon or "community" %}
+<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  {% if i == "community" %}
+    <path d="M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" /><path d="M17 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" /><path d="M2 20v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1" /><path d="M18 14a4 4 0 0 1 4 4v2" />
+  {% elif i == "culture" %}
+    <path d="M12 3v18" /><path d="M4 7h16" /><path d="M4 17h16" /><path d="m8 3-4 8 4 8" /><path d="m16 3 4 8-4 8" />
+  {% elif i == "music" %}
+    <path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" />
+  {% elif i == "support" %}
+    <path d="M20.8 6.6a5 5 0 0 0-7.1 0L12 8.3l-1.7-1.7a5 5 0 1 0-7.1 7.1L12 22l8.8-8.3a5 5 0 0 0 0-7.1Z" />
+  {% elif i == "education" %}
+    <path d="m22 9-10-5L2 9l10 5 10-5Z" /><path d="M6 11.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5" />
+  {% elif i == "faith" %}
+    <path d="M12 2v20" /><path d="M6 8h12" />
+  {% elif i == "sport" %}
+    <circle cx="12" cy="12" r="9" /><path d="m12 7 4 3-1.5 5h-5L8 10Z" />
+  {% elif i == "home" %}
+    <path d="m3 10 9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" /><path d="M9 22V12h6v10" />
+  {% elif i == "health" %}
+    <path d="M12 5v14" /><path d="M5 12h14" />
+  {% elif i == "work" %}
+    <rect x="2" y="7" width="20" height="14" rx="2" /><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+  {% elif i == "money" %}
+    <circle cx="12" cy="12" r="9" /><path d="M15 9a3 3 0 0 0-3-1.5c-1.7 0-3 .9-3 2s1.3 2 3 2 3 .9 3 2-1.3 2-3 2A3 3 0 0 1 9 15" /><path d="M12 6v12" />
+  {% elif i == "travel" %}
+    <path d="M2 12h20" /><circle cx="12" cy="12" r="9" /><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z" />
+  {% else %}
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" /><path d="M14 2v6h6" />
+  {% endif %}
+</svg>

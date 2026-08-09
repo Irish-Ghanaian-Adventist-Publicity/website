@@ -1,0 +1,143 @@
+---
+layout: layouts/base.njk
+permalink: /
+eleventyExcludeFromCollections: true
+---
+
+<section class="hero"{% if home.hero_image %} style="--hero-image: url('{{ home.hero_image | url }}')"{% endif %}>
+  <div class="wrap hero__inner">
+    <p class="hero__eyebrow"><span class="star" aria-hidden="true">★</span> {{ home.hero_eyebrow }}</p>
+    <h1 class="hero__title">{{ home.hero_title }}</h1>
+    <p class="hero__text">{{ home.hero_text }}</p>
+    <p class="hero__actions">
+      <a class="btn" href="{{ home.primary_cta_url | url }}">{{ home.primary_cta_label }}</a>
+      {% if home.secondary_cta_label %}
+        <a class="btn btn--ghost" href="{{ home.secondary_cta_url | url }}">{{ home.secondary_cta_label }}</a>
+      {% endif %}
+    </p>
+  </div>
+  <div class="kente-rule kente-rule--thick" aria-hidden="true"></div>
+</section>
+
+{% if home.stats.length %}
+  <section class="stats">
+    <div class="wrap stats__grid">
+      {% for stat in home.stats %}
+        <div class="stat">
+          <span class="stat__value">{{ stat.value }}</span>
+          <span class="stat__label">{{ stat.label }}</span>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
+
+<section class="section">
+  <div class="wrap">
+    <header class="section__head">
+      <h2>What we are about</h2>
+      <p>Worship, fellowship and service — the three things a church is actually for.</p>
+    </header>
+
+    <div class="cards cards--3">
+      {% for pillar in home.pillars %}
+        <article class="card card--pillar">
+          <span class="card__icon" aria-hidden="true">{% include "partials/icon.njk" %}</span>
+          <h3>{{ pillar.title }}</h3>
+          <p>{{ pillar.text }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% set upcoming = collections.upcomingEvents | limit(3) %}
+{% if upcoming.length %}
+  <section class="section section--tint">
+    <div class="wrap">
+      <header class="section__head section__head--row">
+        <div>
+          <h2>Coming up</h2>
+          <p>Everyone is welcome — bring the family, bring a friend.</p>
+
+        </div>
+        <a class="link-arrow" href="{{ '/events/' | url }}">All events</a>
+      </header>
+
+      <div class="cards cards--3">
+        {% for event in upcoming %}
+          {% include "partials/event-card.njk" %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% if home.quote %}
+  <section class="quote-band">
+    <div class="wrap wrap--narrow">
+      <blockquote>
+        <p>{{ home.quote }}</p>
+        {% if home.quote_author %}<cite>{{ home.quote_author }}</cite>{% endif %}
+      </blockquote>
+    </div>
+  </section>
+{% endif %}
+
+<section class="section">
+  <div class="wrap">
+    <header class="section__head section__head--row">
+      <div>
+        <h2>Just arrived?</h2>
+        <p>Straight answers to the questions everyone has in their first few months.</p>
+      </div>
+      <a class="link-arrow" href="{{ '/support/' | url }}">All guides</a>
+    </header>
+
+    <div class="cards cards--3">
+      {% for guide in collections.resources | limit(3) %}
+        <a class="card card--guide" href="{{ guide.url | url }}">
+          <span class="card__icon card__icon--sm" aria-hidden="true">★</span>
+          <h3>{{ guide.data.title }}</h3>
+          <p>{{ guide.data.summary }}</p>
+          <span class="tag">{{ guide.data.jurisdiction }}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% set latest = collections.newsPosts | limit(3) %}
+{% if latest.length %}
+  <section class="section section--tint">
+    <div class="wrap">
+      <header class="section__head section__head--row">
+        <div>
+          <h2>Latest news</h2>
+        </div>
+        <a class="link-arrow" href="{{ '/news/' | url }}">All news</a>
+      </header>
+
+      <div class="cards cards--3">
+        {% for post in latest %}
+          <a class="card card--news" href="{{ post.url | url }}">
+            <time class="card__date" datetime="{{ post.data.date | isoDate }}">{{ post.data.date | longDate }}</time>
+            <h3>{{ post.data.title }}</h3>
+            <p>{{ post.data.summary or (post.templateContent | excerpt(140)) }}</p>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+<section class="cta-band">
+  <div class="wrap wrap--narrow">
+    <h2>There is always room for one more</h2>
+    <p>
+      Come this Sabbath. Nothing to sign, nothing expected of you — just a seat, a warm
+      welcome, and food afterwards.
+    </p>
+    <a class="btn btn--light" href="{{ '/worship/' | url }}">Plan your first visit</a>
+  </div>
+</section>
