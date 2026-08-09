@@ -102,6 +102,26 @@ export default function (eleventyConfig) {
       .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
   );
 
+  // ---------------------------------------------------------------------------
+  // Path prefix safety net
+  // ---------------------------------------------------------------------------
+  // Templates run links through the `url` filter, but images an editor drops into
+  // the body of an article come out of the CMS as plain "/assets/uploads/…".
+  // On a project page (served from /website/) those would 404, so patch any
+  // root-relative link the filter never saw.
+  const prefix = process.env.PATH_PREFIX || "/";
+  if (prefix !== "/") {
+    const normalised = "/" + prefix.replace(/^\/|\/$/g, "") + "/";
+    eleventyConfig.addTransform("pathPrefixFallback", function (content) {
+      if (!(this.page.outputPath || "").endsWith(".html")) return content;
+      return content.replace(
+        /(\s(?:href|src)=")(\/(?!\/)[^"]*)"/g,
+        (match, attr, path) =>
+          path.startsWith(normalised) ? match : `${attr}${normalised}${path.slice(1)}"`
+      );
+    });
+  }
+
   return {
     dir: {
       input: "src",

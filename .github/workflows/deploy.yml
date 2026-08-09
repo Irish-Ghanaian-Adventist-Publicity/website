@@ -32,8 +32,9 @@ jobs:
       - name: Build the site
         run: npm run build
         env:
-          # For a project page (username.github.io/repo-name) uncomment and set this:
-          # PATH_PREFIX: /repo-name/
+          # This is a project page, so the site is served from /website/.
+          # If you move to a custom domain (e.g. igac.ie), delete this line.
+          PATH_PREFIX: /website/
           NODE_ENV: production
 
       - uses: actions/upload-pages-artifact@v3

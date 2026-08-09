@@ -7,7 +7,7 @@
 
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME # <-- CHANGE ME
+  repo: Irish-Ghanaian-Adventist-Publicity/website
   branch: main
   # The OAuth helper that lets editors sign in with GitHub. See README.md.
   base_url: https://YOUR-OAUTH-HELPER.workers.dev # <-- CHANGE ME
@@ -24,9 +24,9 @@ publish_mode: editorial_workflow
 media_folder: "src/assets/uploads"
 public_folder: "/assets/uploads"
 
-site_url: https://YOUR-SITE-URL # <-- CHANGE ME
-display_url: https://YOUR-SITE-URL # <-- CHANGE ME
-logo_url: /assets/img/logo.svg
+site_url: https://irish-ghanaian-adventist-publicity.github.io/website/
+display_url: https://irish-ghanaian-adventist-publicity.github.io/website/
+logo_url: /website/assets/img/logo.svg
 
 collections:
   # ===========================================================================

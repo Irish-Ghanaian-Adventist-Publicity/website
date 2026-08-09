@@ -48,32 +48,31 @@ out before going live.
 
 ## Setup, step by step
 
-### 1. Put the code on GitHub
+### 1. The code is already on GitHub — DONE
 
-```bash
-git init
-git add .
-git commit -m "Initial site"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPO.git
-git push -u origin main
-```
+Repository: **[Irish-Ghanaian-Adventist-Publicity/website](https://github.com/Irish-Ghanaian-Adventist-Publicity/website)**
 
-Use a **GitHub Organisation** rather than a personal account if you can — then committee
-members come and go without the site belonging to one individual.
+It lives under an organisation rather than a personal account, so committee members can
+come and go without the site belonging to one individual.
 
-### 2. Turn on GitHub Pages
+### 2. Turn on GitHub Pages — DO THIS FIRST
 
 Repo → **Settings** → **Pages** → under *Build and deployment*, set **Source** to
 **GitHub Actions**.
 
-Push to `main` and the included workflow builds and publishes the site. Watch it under the
-**Actions** tab; it takes about a minute.
+Nothing publishes until this is switched on. Once it is, every push to `main` builds and
+publishes automatically — watch it under the **Actions** tab, it takes about a minute.
 
-**If your site lives at `username.github.io/repo-name`** (a "project page"), open
-[.github/workflows/deploy.yml](.github/workflows/deploy.yml) and uncomment the
-`PATH_PREFIX` line, setting it to `/repo-name/`. Skip this if you are using a custom
-domain or a `username.github.io` repo.
+The site will appear at:
+
+```text
+https://irish-ghanaian-adventist-publicity.github.io/website/
+```
+
+Because that address has `/website/` on the end, the build sets `PATH_PREFIX: /website/`
+in [.github/workflows/deploy.yml](.github/workflows/deploy.yml). **If you later move to a
+custom domain such as `igac.ie`, delete that line** — and change `logo_url` in
+`admin/config.yml` back to `/assets/img/logo.svg`.
 
 ### 3. Give the CMS a way to log people in
 
@@ -121,13 +120,12 @@ at all. This is the gentlest option for a non-technical committee.
 
 ### 4. Fill in your own details
 
-In [admin/config.yml](admin/config.yml), replace every line marked `# <-- CHANGE ME`:
+In [admin/config.yml](admin/config.yml), `repo`, `site_url` and `display_url` are already
+set. **One line still says `# <-- CHANGE ME`:**
 
-| Setting | What to put |
-|---|---|
-| `repo` | `your-org/your-repo` |
-| `base_url` | your OAuth helper address (Option A only — delete for Option B) |
-| `site_url` / `display_url` | your live website address |
+| Setting    | What to put                                                                              |
+| ---------- | ---------------------------------------------------------------------------------------- |
+| `base_url` | your OAuth helper address (Option A only — delete the whole `backend` block for Option B) |
 
 Then set the real name, email, venue and service times — either by editing
 [src/\_data/site.json](src/_data/site.json) directly, or through the CMS under
