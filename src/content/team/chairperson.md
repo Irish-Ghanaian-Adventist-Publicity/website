@@ -1,7 +1,7 @@
 ---
 title: Chaplain Greg Clay Davis
 role: Chairperson
-photo: ""
+photo: "/assets/uploads/greg.jpg"
 email: ""
 order: 1
 ---
