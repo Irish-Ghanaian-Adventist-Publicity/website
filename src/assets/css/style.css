@@ -648,9 +648,22 @@ p {
   grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
 }
 
-/* Team grid: three across at most, so each portrait gets real width. */
+/* Team grid: exactly three across. auto-fit would silently fall back to two
+   columns at middling widths, which made each card very wide. */
 .cards--team {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 860px) {
+  .cards--team {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 540px) {
+  .cards--team {
+    grid-template-columns: 1fr;
+  }
 }
 
 .card {
